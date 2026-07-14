@@ -300,6 +300,9 @@ Terraform downloaded:
 - Provider metadata
 - Dependencies
 
+<img width="595" height="295" alt="image" src="https://github.com/user-attachments/assets/fc950677-46e1-4a19-808d-2ce19262af5b" />
+
+
 Created:
 
 ```
@@ -340,6 +343,12 @@ Current infrastructure
 
 Displayed execution plan.
 
+<img width="731" height="653" alt="image" src="https://github.com/user-attachments/assets/1f7b5034-800d-4618-825a-ee7f82c3ef4d" />
+
+<img width="386" height="57" alt="image" src="https://github.com/user-attachments/assets/2ca89d4e-1190-4055-baaf-45f7f6bce205" />
+
+
+
 ---
 
 ## terraform apply
@@ -362,7 +371,11 @@ Asked for confirmation
 
 Created AWS resources.
 
+<img width="645" height="663" alt="image" src="https://github.com/user-attachments/assets/06142177-ce01-4062-8e6d-9fcc22d5c581" />
+
+
 After successful execution, I verified the S3 bucket inside AWS Console.
+
 
 ---
 
@@ -688,6 +701,9 @@ terraform state show <resource_name>
 ```
 
 Destroy infrastructure
+
+<img width="667" height="569" alt="image" src="https://github.com/user-attachments/assets/245053c5-a103-4e46-b6e3-56680678fb17" />
+
 
 ```bash
 terraform destroy

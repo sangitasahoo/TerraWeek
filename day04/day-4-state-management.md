@@ -15,6 +15,12 @@
 
 Terraform stores the current state of managed infrastructure in `terraform.tfstate`. It maps resources in your `.tf` files to the real infrastructure and stores IDs, attributes, outputs, dependencies, and metadata.
 
+The `terraform.tfstate` file is automatically created when you run `terraform apply`.
+
+It stores the current state of your infrastructure, including resources, data sources, and outputs. Terraform uses it to track and manage your infrastructure.
+
+- The state file is **sensitive** because it can store secrets in plain text, such as passwords, API keys, and access tokens. Always keep it secure and never share it publicly.
+
 ### Why it is important
 
 - Tracks created resources
@@ -27,6 +33,7 @@ Terraform stores the current state of managed infrastructure in `terraform.tfsta
 - Can corrupt state
 - Terraform may lose track of resources
 - May recreate or destroy the wrong infrastructure
+- - **Never edit it by hand** because it can corrupt the state and cause Terraform to lose track of your infrastructure.
 
 Use state commands instead:
 
@@ -39,6 +46,8 @@ terraform import
 ```
 
 ## Why you should not commit state to Git
+
+- **Never commit it to Git** because it may contain sensitive information (such as IDs, IP addresses, or secrets) and can cause conflicts when multiple people work on the same infrastructure.
 
 State files may contain:
 
@@ -58,6 +67,8 @@ Use remote backends (S3, Terraform Cloud, Azure Blob, GCS) for team projects.
 
 ## State Drift
 
+- **State drift** happens when your actual infrastructure is changed outside of Terraform, so it no longer matches the Terraform state.
+
 State drift occurs when infrastructure is changed outside Terraform.
 
 Examples:
@@ -65,7 +76,8 @@ Examples:
 - AWS CLI changes
 - Resource deletion outside Terraform
 
-`terraform plan` detects drift by comparing configuration, state, and real infrastructure.
+- `terraform plan` detects drift by comparing configuration, state, and real infrastructure.
+- `terraform refresh` updates the state file to match the current infrastructure.
 
 Modern Terraform automatically refreshes state during `plan` and `apply`.
 

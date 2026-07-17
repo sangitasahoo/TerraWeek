@@ -104,7 +104,17 @@ This allows different configurations based on the active workspace.
 
 - More Terraform code to maintain
 
+| Workspaces | Separate Directories/Backends |
+|------------|-------------------------------|
+| Same code, different state | Separate code and state |
+| Easy for small projects | Better for production |
+| Quick to switch | More secure and isolated |
+
 ---
+
+**Summary:**
+- **Workspaces** → Best for small/simple projects.
+- **Separate directories/backends** → Best for production projects.
 
 # Task 2: Quality Gates
 
@@ -187,11 +197,15 @@ run "plan_test" {
 
 ---
 
-## Understanding "Tearing Down"
+### **Tearing Down**
+
+- **Tearing down** means Terraform is **cleaning up (destroying)** the resources created during the test.
+- It happens after the tests finish to keep the environment clean and avoid unnecessary costs.
+
+**Example:**
+`terraform test` → Create resources → Run tests → **Tear down (destroy resources)**.
 
 During `terraform test`, Terraform creates a temporary testing environment.
-
-"Tearing down" means Terraform is cleaning up after the test.
 
 <img width="373" height="165" alt="image" src="https://github.com/user-attachments/assets/59bf0fd1-3317-4eaa-80e6-565e51da2d42" />
 
@@ -287,6 +301,13 @@ Benefits:
 
 # Task 4: CI/CD with GitHub Actions
 
+| Step | What it Does |
+|------|---------------|
+| **`terraform fmt -check`** | Checks if Terraform files are properly formatted. |
+| **`terraform init`** | Downloads the required providers and modules. |
+| **`terraform validate`** | Checks the Terraform code for syntax and configuration errors. |
+| **`terraform plan`** | Shows what changes Terraform will make without creating or modifying any resources. |
+
 Terraform can automatically validate infrastructure whenever code is pushed or a Pull Request is opened.
 
 Workflow location:
@@ -355,6 +376,13 @@ Shows infrastructure changes without applying them.
 ---
 
 # Task 5: Terraform Best Practices
+
+- ✅ **Remote state** – Store the state remotely and never commit `.tfstate` files.
+- ✅ **Version pinning** – Pin Terraform, provider, and module versions.
+- ✅ **Reusable modules** – Use modules to avoid repeating code and keep naming/tagging consistent.
+- ✅ **No hard-coded secrets** – Use variables, environment variables, or a secrets manager.
+- ✅ **CI checks** – Run `fmt`, `validate`, `test`, and a security scan (like Trivy).
+- ✅ **README & cleanup** – Keep a clear `README.md` and use `terraform destroy` to remove resources when done.
 
 ## Remote State
 

@@ -49,6 +49,9 @@ Show current workspace:
 terraform workspace show
 ```
 
+<img width="541" height="248" alt="image" src="https://github.com/user-attachments/assets/d141fb2a-7a09-4dbc-9718-808d2b1051c8" />
+
+
 ## Using `terraform.workspace`
 
 Terraform provides a built-in variable called `terraform.workspace`.
@@ -126,6 +129,8 @@ Purpose:
 ```bash
 terraform validate
 ```
+<img width="349" height="77" alt="image" src="https://github.com/user-attachments/assets/06327ac3-a5d4-4975-8c51-9584104c6ab5" />
+
 
 Checks:
 
@@ -188,6 +193,9 @@ During `terraform test`, Terraform creates a temporary testing environment.
 
 "Tearing down" means Terraform is cleaning up after the test.
 
+<img width="373" height="165" alt="image" src="https://github.com/user-attachments/assets/59bf0fd1-3317-4eaa-80e6-565e51da2d42" />
+
+
 For plan tests:
 
 - Removes temporary state
@@ -209,12 +217,16 @@ Run:
 ```bash
 trivy config .
 ```
+<img width="1044" height="395" alt="image" src="https://github.com/user-attachments/assets/1ce5a384-b49c-435a-a169-658a872d988f" />
 
 Purpose:
 
 - Detect security issues
 - Detect Terraform misconfigurations
 - Suggest best practices
+
+<img width="1078" height="350" alt="image" src="https://github.com/user-attachments/assets/fa81598b-13ea-495c-9aef-0c9c7be09b02" />
+
 
 ### Finding I Received
 
@@ -284,6 +296,9 @@ Workflow location:
 ```
 
 Typical pipeline:
+
+<img width="1464" height="450" alt="image" src="https://github.com/user-attachments/assets/c6b9834b-122b-46a1-b131-69c0a037f656" />
+
 
 ```
 Checkout Repository

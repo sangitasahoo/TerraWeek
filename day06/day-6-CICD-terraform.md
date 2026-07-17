@@ -508,29 +508,7 @@ Ensures:
 
 ---
 
-## README
 
-Every Terraform project should include:
-
-- Project description
-- Prerequisites
-- Setup instructions
-- Deployment commands
-- Destroy instructions
-
----
-
-## Destroy Infrastructure
-
-Always verify infrastructure can be removed.
-
-```bash
-terraform destroy
-```
-
-This prevents unnecessary cloud costs.
-
----
 
 # Key Commands Learned Today
 

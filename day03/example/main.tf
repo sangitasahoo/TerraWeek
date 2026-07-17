@@ -104,6 +104,7 @@ resource "aws_security_group" "web" {
 # it works even when the instance is replaced. (More on provisioners on Day 6.)
 
 resource "aws_instance" "web" {
+  count                  = 2
   ami                    = data.aws_ami.al2023.id
   instance_type          = var.instance_type
   subnet_id              = aws_subnet.public.id
@@ -121,6 +122,7 @@ resource "aws_instance" "web" {
   }
 
   tags = {
-    Name = "${var.name_prefix}-web"
+    Name = "web-${count.index}"
   }
+
 }

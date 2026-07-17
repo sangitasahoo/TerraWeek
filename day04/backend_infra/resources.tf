@@ -4,6 +4,8 @@
 resource "aws_s3_bucket" "state" {
   bucket = var.state_bucket_name
 
+  force_destroy = true
+
   tags = {
     Name = var.state_bucket_name
   }
@@ -37,4 +39,10 @@ resource "aws_s3_bucket_public_access_block" "state" {
   block_public_policy     = true
   ignore_public_acls      = true
   restrict_public_buckets = true
+}
+
+
+import {
+  to = aws_s3_bucket.imported
+  id = "sanggs-demo-terrawk-bkt"
 }

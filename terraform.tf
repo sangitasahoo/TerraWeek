@@ -10,14 +10,13 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-west-2"
+  region = var.aws_region
 
   default_tags {
     tags = {
       Project   = "terraweek-2026"
       ManagedBy = "terraform"
-      Day       = "05"
+      Day       = "03"
     }
   }
 }
-

@@ -8,9 +8,15 @@ terraform {
     }
   }
 }
-
+# Default provider
 provider "aws" {
   region = var.aws_region
+
+  # # Second provider
+  # provider "aws" {
+  #   alias  = "south"
+  #   region = "ap-south-2"
+  # }
 
   default_tags {
     tags = {
